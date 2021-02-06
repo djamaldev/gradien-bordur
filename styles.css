@@ -1,0 +1,194 @@
+body {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #100b23;
+}
+
+.container {
+  height: 460px;
+  width: 350px;
+  background: #191136;
+  border-radius: 20px;
+  position: absolute;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  perspective: 1200px;
+  z-index: 10;
+}
+
+.red {
+  width: 100%;
+  height: 2px;
+  background: red;
+  position: absolute;
+  top: 0;
+  transition: 1s;
+}
+
+.container:hover .red {
+  transform: translatex(-300px);
+}
+
+@keyframes move1 {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatex(-300px);
+  }
+  100% {
+    transform: translatex(00px);
+  }
+}
+
+.yellow {
+  width: 2px;
+  height: 100%;
+  background: yellow;
+  position: absolute;
+  right: 0;
+  transition: 1s;
+}
+
+.container:hover .yellow {
+  transform: translatey(-400px);
+}
+
+@keyframes move2 {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-400px);
+  }
+  100% {
+    transform: translatey(00px);
+  }
+}
+
+.purple {
+  width: 100%;
+  height: 2px;
+  background: #f638dc;
+  position: absolute;
+  bottom: 0;
+  transition: 1s;
+}
+
+.container:hover .purple {
+  transform: translatex(300px);
+}
+
+@keyframes move3 {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatex(300px);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+
+.green {
+  width: 2px;
+  height: 100%;
+  background: green;
+  position: absolute;
+  left: 0;
+  transition: 1s;
+}
+
+.container:hover .green {
+  transform: translatey(400px);
+}
+
+@keyframes move4 {
+  0% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(400px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.flap::before {
+  width: 50%;
+  height: 100%;
+  background-image: url("./pic");
+  background-repeat: no-repeat;
+  background-position: -26px;
+  opacity: 0.1;
+  content: "";
+  left: 0;
+  position: absolute;
+  transition: 1s;
+  transform-origin: left;
+}
+
+.flap::after {
+  width: 50%;
+  height: 100%;
+  background-image: url("./pic");
+  background-repeat: no-repeat;
+  background-position: -200px;
+  content: "";
+  position: absolute;
+  right: 0;
+  opacity: 0.1;
+  transition: 1s;
+  transform-origin: right;
+}
+
+.container:hover .flap::before {
+  opacity: 1;
+}
+
+.container:hover .flap::after {
+  opacity: 1;
+}
+
+.container:hover .red {
+  animation: move1 4s linear infinite;
+}
+
+.container:hover .yellow {
+  animation: move2 4s linear infinite;
+}
+
+.container:hover .purple {
+  animation: move3 4s linear infinite;
+}
+
+.container:hover .green {
+  animation: move4 4s linear infinite;
+}
+
+h1 {
+  color: #f638dc;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  font-size: 44px;
+}
